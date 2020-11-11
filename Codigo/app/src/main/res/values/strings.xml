@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Digital House Foods</string>
+
+    //login activity
+    <string name="email">Digite seu Email</string>
+    <string name="senha">Digite sua senha</string>
+    <string name="btn_login">LOGIN</string>
+    <string name="or">ou</string>
+    <string name="cadastrar">Cadastre-se</string>
+
+    //cadastro activity
+    <string name="nome">Digite seu Nome</string>
+    <string name="btn_cadastrar">CADASTRAR</string>
+
+</resources>

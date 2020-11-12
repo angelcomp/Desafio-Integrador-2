@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.desafiointegrador2.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_restaurante.*
+import kotlinx.android.synthetic.main.item_prato.*
 
 class RestauranteActivity : AppCompatActivity(), PratosAdapter.onRestClickListener{
 
@@ -42,7 +43,7 @@ class RestauranteActivity : AppCompatActivity(), PratosAdapter.onRestClickListen
     fun getListaPratos(): ArrayList<Pratos> {
 
         var lista: ArrayList<Pratos> = arrayListOf()
-        for (i in 1.. 20) {
+        for (i in 1.. 16) {
             lista.add(Pratos("Salada com Molho de Gengibre", "BLABLABLABLA", R.drawable.image6))
         }
         return lista
@@ -53,10 +54,10 @@ class RestauranteActivity : AppCompatActivity(), PratosAdapter.onRestClickListen
     }
 
     fun callPrato(position: Int){
-        var intent = Intent(this, RestauranteActivity::class.java)
+        var intent = Intent(this, PratoActivity::class.java)
         var prato = listaPratos.get(position)
 
-        intent.putExtra("restaurante", prato)
+        intent.putExtra("prato", prato)
 
         startActivity(intent)
     }

@@ -3,11 +3,13 @@ package com.example.desafiointegrador2
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), RestauranteAdapter.onRestClickListener  {
 
-    lateinit var listaRestaurante: ArrayList<Restaurante>
+    var listaRestaurante = getListRestaurantes()
+    var adapter = RestauranteAdapter(listaRestaurante,this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,8 +18,9 @@ class MainActivity : AppCompatActivity() {
         var usuario = intent.getSerializableExtra("usuario") as? Usuario
         showToast("Bem Vindo ${usuario!!.nome}")
 
-        listaRestaurante = getListRestaurantes()
-
+        rvRestaurante.adapter = adapter
+        rvRestaurante.layoutManager = LinearLayoutManager(this)
+        rvRestaurante.setHasFixedSize(true)
     }
 
     fun showToast(msg: String){
@@ -28,29 +31,42 @@ class MainActivity : AppCompatActivity() {
     fun getListRestaurantes(): ArrayList<Restaurante> {
         return arrayListOf(
             Restaurante(
+                1,
                 "Tony Roma's",
                 "Av. Lavandisca, 717 - Indianápolis, São Paulo",
                 "Fecha às 22:00",
                 R.drawable.image1
             ),
             Restaurante(
+                2,
                 "Aoyama - Moema",
                 "Alameda dos Arapanés, 532 - Moema",
                 "Fecha às 00:00",
                 R.drawable.image4
             ),
             Restaurante(
+                3,
                 "Outback - Moema",
                 "Av. Moaci, 187 - Moema, São Paulo",
                 "Fecha às 00:00",
-                R.drawable.image5
+                R.drawable.image6
             ),
             Restaurante(
+                4,
                 "Sí señor!",
                 "Alameda Jauaperi, 626 - Moema",
                 "Fecha às 01:00",
                 R.drawable.image3
             )
         )
+    }
+
+    override fun restClick(position: Int) {
+        var res = listaRestaurante.get(position)
+
+        res.nome = "DEU CERTO! YEY >.<"
+
+        adapter.notifyItemChanged(position)
+        Toast.makeText(this, res.nome, Toast.LENGTH_LONG).show()
     }
 }

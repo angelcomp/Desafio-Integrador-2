@@ -1,9 +1,10 @@
-package com.example.desafiointegrador2
+package com.example.desafiointegrador2.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import com.example.desafiointegrador2.R
+import com.example.desafiointegrador2.Usuario
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -31,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     //Pega as informações do usuario
-    fun getInformationUser(): Usuario{
+    fun getInformationUser(): Usuario {
         val email = edEmail.text.toString()
         val senha = edPassword.text.toString()
 

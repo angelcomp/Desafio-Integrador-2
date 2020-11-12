@@ -1,22 +1,28 @@
-package com.example.desafiointegrador2
+package com.example.desafiointegrador2.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.desafiointegrador2.R
+import com.example.desafiointegrador2.Restaurante
+import com.example.desafiointegrador2.RestauranteAdapter
+import com.example.desafiointegrador2.Usuario
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), RestauranteAdapter.onRestClickListener  {
+class MainActivity : AppCompatActivity(),
+    RestauranteAdapter.onRestClickListener {
 
     var listaRestaurante = getListRestaurantes()
-    var adapter = RestauranteAdapter(listaRestaurante,this)
+    var adapter = RestauranteAdapter(listaRestaurante, this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         var usuario = intent.getSerializableExtra("usuario") as? Usuario
-        showToast("Bem Vindo ${usuario!!.nome}")
+        showToast("Bem-Vindo(a) ${usuario!!.nome}")
 
         rvRestaurante.adapter = adapter
         rvRestaurante.layoutManager = LinearLayoutManager(this)
@@ -62,11 +68,23 @@ class MainActivity : AppCompatActivity(), RestauranteAdapter.onRestClickListener
     }
 
     override fun restClick(position: Int) {
+
+        callRest(position)
+
+        //var res = listaRestaurante.get(position)
+        //res.nome = "DEU CERTO! YEY >.<"
+
+        //adapter.notifyItemChanged(position)
+        //Toast.makeText(this, res.nome, Toast.LENGTH_LONG).show()
+    }
+
+    fun callRest(position: Int){
+        var intent = Intent(this, RestauranteActivity::class.java)
         var res = listaRestaurante.get(position)
 
-        res.nome = "DEU CERTO! YEY >.<"
+        intent.putExtra("imagem", res.img)
+        intent.putExtra("nome", res.nome)
 
-        adapter.notifyItemChanged(position)
-        Toast.makeText(this, res.nome, Toast.LENGTH_LONG).show()
+        startActivity(intent)
     }
 }

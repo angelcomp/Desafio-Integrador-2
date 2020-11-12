@@ -1,9 +1,10 @@
-package com.example.desafiointegrador2
+package com.example.desafiointegrador2.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import com.example.desafiointegrador2.R
 
 @Suppress("DEPRECATION")
 class SplashActivity : AppCompatActivity() {
@@ -13,6 +14,6 @@ class SplashActivity : AppCompatActivity() {
 
         Handler().postDelayed({
             startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
-        }, 3000)
+        }, 2000)
     }
 }

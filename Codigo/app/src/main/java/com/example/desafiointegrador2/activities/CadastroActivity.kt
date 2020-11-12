@@ -1,15 +1,15 @@
-package com.example.desafiointegrador2
+package com.example.desafiointegrador2.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import com.example.desafiointegrador2.R
+import com.example.desafiointegrador2.Usuario
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_cadastro.*
 import kotlinx.android.synthetic.main.activity_cadastro.act_login
 import kotlinx.android.synthetic.main.activity_cadastro.edEmail
 import kotlinx.android.synthetic.main.activity_cadastro.edPassword
-import kotlinx.android.synthetic.main.activity_login.*
 
 class CadastroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +26,7 @@ class CadastroActivity : AppCompatActivity() {
     }
 
     //Pega as informações do usuario
-    fun getInformationUser(): Usuario{
+    fun getInformationUser(): Usuario {
 
         var username = edName.text.toString()
         var email = edEmail.text.toString()

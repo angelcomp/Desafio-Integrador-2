@@ -7,35 +7,31 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class PratosAdapter(private val listaRestaurante: ArrayList<Restaurante>, val listener: onRestClickListener): RecyclerView.Adapter<PratosAdapter.RestViewHolder>() {
+class PratosAdapter(private val listaPratos: ArrayList<Pratos>, val listener: onRestClickListener): RecyclerView.Adapter<PratosAdapter.RestViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): PratosAdapter.RestViewHolder {
-        var itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_restaurante, parent, false)
+        var itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_prato, parent, false)
         return RestViewHolder(itemView)
     }
 
-    override fun getItemCount() = listaRestaurante.size
+    override fun getItemCount() = listaPratos.size
 
     override fun onBindViewHolder(holder: PratosAdapter.RestViewHolder, position: Int) {
-        var restaurante = listaRestaurante.get(position)
+        var prato = listaPratos.get(position)
 
-        holder.tvNome.text = restaurante.nome
-        holder.tvEnd.text = restaurante.endereço
-        holder.tvhora.text = restaurante.horario
-        holder.ivImg.setImageResource(restaurante.img)
+        holder.nomePrato.text = prato.nome
+        holder.imgPrato.setImageResource(prato.img)
     }
 
     interface onRestClickListener {
-        fun restClick( position: Int )
+        fun pratoClick( position: Int )
     }
 
     inner class RestViewHolder(itemView: View): RecyclerView.ViewHolder (itemView), View.OnClickListener {
-        val tvNome: TextView = itemView.findViewById(R.id.nomeRest)
-        val tvEnd: TextView = itemView.findViewById(R.id.enderecoRest)
-        val tvhora: TextView = itemView.findViewById(R.id.horaRest)
-        val ivImg: ImageView = itemView.findViewById(R.id.imgRest)
+        val nomePrato: TextView = itemView.findViewById(R.id.nomePrato)
+        val imgPrato: ImageView = itemView.findViewById(R.id.imgPrato)
 
         init {
             itemView.setOnClickListener(this)
@@ -45,7 +41,7 @@ class PratosAdapter(private val listaRestaurante: ArrayList<Restaurante>, val li
             val position = adapterPosition
 
             if (RecyclerView.NO_POSITION != position) {
-                listener.restClick(position)
+                listener.pratoClick(position)
             }
         }
     }

@@ -17,7 +17,7 @@ class CadastroActivity : AppCompatActivity() {
         setContentView(R.layout.activity_cadastro)
 
         iv_arrowBack.setOnClickListener {
-            onBackPressed()
+            finish()
         }
         btn_registrar.setOnClickListener {
 

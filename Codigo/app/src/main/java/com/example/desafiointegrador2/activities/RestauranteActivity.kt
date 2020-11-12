@@ -1,33 +1,64 @@
 package com.example.desafiointegrador2.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.desafiointegrador2.R
-import com.example.desafiointegrador2.Restaurante
-import com.example.desafiointegrador2.Usuario
+import androidx.recyclerview.widget.GridLayoutManager
+import com.example.desafiointegrador2.*
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_restaurante.*
 
-class RestauranteActivity : AppCompatActivity() {
+class RestauranteActivity : AppCompatActivity(), PratosAdapter.onRestClickListener{
+
+    private var listaPratos: ArrayList<Pratos> = getListaPratos()
+    var adapter = PratosAdapter(listaPratos, this)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_restaurante)
 
         val extras = intent.extras
-        var img = extras?.getInt("imagem")
-        var nome = extras?.getString("nome")
+        var rest = (intent.getSerializableExtra("restaurante") as? Restaurante)!!
 
-        tv_nomeBackground.text = nome
-        if (img != null) {
-            iv_background.setImageResource(img)
+        tv_nomeBackground.text = rest.nome
+        if (rest.img != null) {
+            iv_background.setImageResource(rest.img)
         }
 
         seta.setOnClickListener {
-            onBackPressed()
+            finish()
         }
 
         iv_background.setOnClickListener {
             Toast.makeText(this, "oin", Toast.LENGTH_LONG).show()
         }
+
+        rv_pratos.adapter = adapter
+        rv_pratos.layoutManager = GridLayoutManager(this,2)
+        rv_pratos.setHasFixedSize(true)
     }
+
+    fun getListaPratos(): ArrayList<Pratos> {
+
+        var lista: ArrayList<Pratos> = arrayListOf()
+        for (i in 1.. 20) {
+            lista.add(Pratos("Salada com Molho de Gengibre", "BLABLABLABLA", R.drawable.image6))
+        }
+        return lista
+    }
+
+    override fun pratoClick(position: Int) {
+        callPrato(position)
+    }
+
+    fun callPrato(position: Int){
+        var intent = Intent(this, RestauranteActivity::class.java)
+        var prato = listaPratos.get(position)
+
+        intent.putExtra("restaurante", prato)
+
+        startActivity(intent)
+    }
+
 }

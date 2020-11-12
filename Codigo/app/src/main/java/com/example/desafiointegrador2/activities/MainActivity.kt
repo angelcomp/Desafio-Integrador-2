@@ -82,8 +82,7 @@ class MainActivity : AppCompatActivity(),
         var intent = Intent(this, RestauranteActivity::class.java)
         var res = listaRestaurante.get(position)
 
-        intent.putExtra("imagem", res.img)
-        intent.putExtra("nome", res.nome)
+        intent.putExtra("restaurante", res)
 
         startActivity(intent)
     }

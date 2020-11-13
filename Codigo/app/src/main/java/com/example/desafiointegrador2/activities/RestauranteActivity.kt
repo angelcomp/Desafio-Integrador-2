@@ -31,10 +31,6 @@ class RestauranteActivity : AppCompatActivity(), PratosAdapter.onRestClickListen
             finish()
         }
 
-        iv_background.setOnClickListener {
-            Toast.makeText(this, "oin", Toast.LENGTH_LONG).show()
-        }
-
         rv_pratos.adapter = adapter
         rv_pratos.layoutManager = GridLayoutManager(this,2)
         rv_pratos.setHasFixedSize(true)

@@ -4,6 +4,7 @@
     //login activity
     <string name="email">Digite seu Email</string>
     <string name="senha">Digite sua senha</string>
+    <string name="resenha">Repita sua senha</string>
     <string name="btn_login">LOGIN</string>
     <string name="or">ou</string>
     <string name="cadastrar">Cadastre-se</string>
@@ -11,5 +12,7 @@
     //cadastro activity
     <string name="nome">Digite seu Nome</string>
     <string name="btn_cadastrar">CADASTRAR</string>
+    <string name="registro">Registro</string>
+
 
 </resources>

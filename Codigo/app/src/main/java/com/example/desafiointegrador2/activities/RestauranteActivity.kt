@@ -19,7 +19,7 @@ class RestauranteActivity : AppCompatActivity(), PratosAdapter.onRestClickListen
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_restaurante)
 
-        val extras = intent.extras
+        //val extras = intent.extras
         var rest = (intent.getSerializableExtra("restaurante") as? Restaurante)!!
 
         tv_nomeBackground.text = rest.nome
@@ -44,7 +44,7 @@ class RestauranteActivity : AppCompatActivity(), PratosAdapter.onRestClickListen
 
         var lista: ArrayList<Pratos> = arrayListOf()
         for (i in 1.. 16) {
-            lista.add(Pratos("Salada com Molho de Gengibre", R.drawable.image6, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non hendrerit sapien. Pellentesque ex lorem, auctor ac diam vitae, tincidunt eleifend erat. Phasellus quis condimentum ex, et hendrerit arcu. Morbi quis porttitor arcu."))
+            lista.add(Pratos("Salada com Molho de Gengibre", R.drawable.image4, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non hendrerit sapien. Pellentesque ex lorem, auctor ac diam vitae, tincidunt eleifend erat. Phasellus quis condimentum ex, et hendrerit arcu. Morbi quis porttitor arcu."))
         }
         return lista
     }

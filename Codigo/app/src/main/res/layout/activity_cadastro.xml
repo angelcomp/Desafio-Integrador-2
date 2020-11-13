@@ -8,35 +8,16 @@
     android:id="@+id/act_login">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/my_toolbar"
+        android:id="@+id/my_toolbar_cadastro"
         android:layout_width="412dp"
         android:layout_height="62dp"
+        app:navigationIcon="@drawable/ic_arrow"
         android:background="?attr/colorPrimary"
         android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
-
-        <ImageView
-            android:id="@+id/iv_arrowBack"
-            android:layout_width="60dp"
-            android:layout_height="50dp"
-            app:srcCompat="@drawable/image2" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_cadastrar"
-            android:layout_marginLeft="40dp"
-            android:textSize="25dp"
-            android:textColor="@color/black"/>
-
-
-    </androidx.appcompat.widget.Toolbar>
+        app:title="@string/registro"
+        app:titleTextColor="@color/White"/>
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/edName"
@@ -79,7 +60,7 @@
         android:id="@+id/edPasswordConfere"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/senha"
+        android:hint="@string/resenha"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

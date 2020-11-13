@@ -16,9 +16,10 @@ class CadastroActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastro)
 
-        iv_arrowBack.setOnClickListener {
+        my_toolbar_cadastro.setNavigationOnClickListener {
             finish()
         }
+
         btn_registrar.setOnClickListener {
 
             callMain(getInformationUser())

@@ -12,16 +12,11 @@
         android:layout_width="412dp"
         android:layout_height="62dp"
         android:background="?attr/colorPrimary"
-        android:elevation="4dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:text="@string/app_name"
-            android:textColor="@color/black"
-            android:textSize="25dp" />
-    </androidx.appcompat.widget.Toolbar>
+        android:elevation="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/app_name"
+        app:titleTextColor="@color/White"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRestaurante"

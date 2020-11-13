@@ -7,6 +7,17 @@
     tools:context=".activities.LoginActivity"
     android:id="@+id/act_login">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="412dp"
+        android:layout_height="62dp"
+        app:titleTextColor="@color/White"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/app_name" />
+
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/edEmail"
         android:layout_width="400dp"
